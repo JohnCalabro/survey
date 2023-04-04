@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title%} Question 1 {%endblock%}
+
+{% block content%} 
+
+<!-- <h1>How did the monkey respond?</h1>
+<p>what are you doing?</p> -->
+
+<form action="/answer" method="POST">
+    <p id="q2">{{q2}}</p>
+    <input type="radio" id="yes" name="answ" value="Yes">
+    <label for="yes">{{yes}}</label>
+    <input type="radio" id="no" name="answ" value="No">
+    <label for="no">{{no}}</label>
+    <button>Submit Answer</button>
+</form>
+{% endblock %}
