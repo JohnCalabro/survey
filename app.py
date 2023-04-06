@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, session
 from flask_debugtoolbar import DebugToolbarExtension
 from surveys import satisfaction_survey
 
@@ -51,6 +51,10 @@ def view_q4():
 def thank_you():
     return render_template("thanks.html")
 
+# @app.route('/session', methods=["POST"])
+# def store_in_session():
+#     start = request.form['save']
+#     res = []
 
 
 @app.route('/answer', methods=["POST"])
@@ -63,7 +67,8 @@ def post_answ():
     # if len(responses) == 2:
     #     return redirect('/questions/2')
     # elif len(responses) == 1:
-    if len(responses) >3:
+    if len(responses) >3: # I add to cookies here I think in this condional block
+        session['user_results'] = responses
         return redirect('/thanks')
     if len(responses) == 3:
         return redirect('/questions/3')
@@ -74,8 +79,8 @@ def post_answ():
     elif len(responses) == 1:
 
         return redirect('/questions/1')
-    # ^ trying to check url and redirect based off that conditional but google has
-    # no answers I can understand.
+   
+    
 
     
     

@@ -9,11 +9,16 @@
 <body>
     <h1>{{title}}</h1>
     <p>{{rules}}</p>
-    <button type="submit">
+    <form action="/questions/0">
+        <input type = "hidden" name = "save" value = "something" />
+        <button>Start Survey</button>
+    </form>
+    <!-- <button type="submit">
         <a href="/questions/0">Start Survey</a>
-    </button>
+    </button> -->
     
 </body>
 </html>
 
 <!-- * Debugger PIN: 536-818-393 -->
+<!-- <form action="/answer" method="POST"></form> -->
